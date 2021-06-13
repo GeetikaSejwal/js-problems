@@ -1,0 +1,52 @@
+2nd part
+Given a time in 12-hr AM/PM format, convert it to military time(24hr) and you also need to add 45 min &45 sec in the result and the display the output.
+E.g.: - Input – 12:01:00PM Output 12:46:45
+Input – 12:01:00AM Output 00:46:45
+
+code:
+<script>
+
+function convert(str)
+{
+	
+	var hr1 = Number(str[1] - '0');
+	var hr2 = Number(str[0] - '0');
+	var hh = (hr2 * 10 + hr1 % 10);
+
+	if (str[8] == 'A')
+	{
+		if (hh == 12)
+		{
+			document.write("00");
+			for (var i = 2; i <= 7; i++)
+				document.write(str[i]);
+		}
+		else
+		{
+			for (var i = 0; i <= 7; i++)
+				document.write(str[i]);
+		}
+	}
+
+	else
+	{
+		if (hh == 12)
+		{
+			document.write("12");
+			for (var i = 2; i <= 7; i++)
+				document.write(str[i]);
+		}
+		else
+		{
+			hh = hh + 12;
+			document.write(hh);
+			for (var i = 2; i <= 7; i++)
+				document.write(str[i]);
+		}
+	}
+}
+
+	var time = "07:05:45PM";
+	convert(time);
+  
+</script>
